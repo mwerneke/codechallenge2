@@ -4,18 +4,18 @@ $( document ).ready( onReady );
 
 function onReady() {
     console.log('DOM ready');
-    $('#addJokeButton').on('click', Submit);
-
-
+    $('#addJokeButton').on('click', handleSubmit);
+    getAllJokes();
 }
-function renderJokes(jokesArray)
+
+function renderJokes(jokesArray){
 
 for(let joke of jokesArray){
     $('#outputDiv').append(`
             <li>${joke.whoseJoke} ${joke.jokeQuestion} ${joke.punchLine} </li>
             `)
+    }
 }
-
 
 
 function getAllJokes(){
@@ -28,11 +28,9 @@ function getAllJokes(){
         renderJokes(response);
     })
 
-
-
 }
 
-function submit(){
+function handleSubmit(){
     console.log('clicked');
 
 const jokeToSend = {
@@ -41,14 +39,17 @@ const jokeToSend = {
     punchLine:$('#punchlineIn').val(),
 }
 
-
-
 $.ajax({
     method: 'POST',
     url: '/jokes',
     data: jokeToSend
-}).then(function(response)
+}).then(function(response) {
+    console.log(response);
+    
+    getAllJokes();
+})
 
-getAllJokes();
+}
 
-}//end submit
+
+//end submit

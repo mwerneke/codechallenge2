@@ -60,8 +60,8 @@ jokesArray.push(completedJokes);
 
 
 res.sendStatus(201);
-
+});
 
 app.listen(PORT, () => {
-  console.log('server running on: ', PORT);
-}); // end spin up server
+  console.log('server running on: ', PORT)
+}) // end spin up server
