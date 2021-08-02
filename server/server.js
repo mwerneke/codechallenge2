@@ -36,11 +36,11 @@ let jokes = [
   }
 ];
 
+
 app.get('/jokes', (req, res) => {
   // send back to the client all calculations
   res.send(jokesArray);
 })
-
 
 app.post('/jokes', (req, res) => {
    
@@ -51,16 +51,20 @@ let whoseJoke = req.body.whoseJoke;
 let jokeQuestion =req.body.jokeQuestion;
 let punchLine= req.body.punchLine;
 
+
+
 const completedJokes = {
   whoseJoke: whoseJoke,
   jokeQuestion: jokeQuestion,
-  punchLine: punchLine
+  punchLine: punchLine,
+  
 }
 jokesArray.push(completedJokes);
 
 
 res.sendStatus(201);
 });
+
 
 app.listen(PORT, () => {
   console.log('server running on: ', PORT)

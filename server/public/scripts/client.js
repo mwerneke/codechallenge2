@@ -9,10 +9,11 @@ function onReady() {
 }
 
 function renderJokes(jokesArray){
+    $('#outputDiv').empty();
 
 for(let joke of jokesArray){
     $('#outputDiv').append(`
-            <li>${joke.whoseJoke} ${joke.jokeQuestion} ${joke.punchLine} </li>
+            <li>Who's Joke: ${joke.whoseJoke} Question? ${joke.jokeQuestion} Punchline ${joke.punchLine} </li>
             `)
     }
 }
