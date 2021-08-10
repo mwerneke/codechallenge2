@@ -18,7 +18,6 @@ for(let joke of jokesArray){
     }
 }
 
-
 function getAllJokes(){
     $.ajax({
         method: 'GET',
